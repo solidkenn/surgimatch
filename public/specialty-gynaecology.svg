@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 500" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Gynaecology specialty">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e8f0ff"/>
+      <stop offset="45%" stop-color="#d4e4ff"/>
+      <stop offset="100%" stop-color="#b8d4f5"/>
+    </linearGradient>
+    <linearGradient id="flow" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#3A7BD5" stop-opacity="0.12"/>
+      <stop offset="50%" stop-color="#1A4BA1" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#0B1F4B" stop-opacity="0.1"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="35%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#C8DEFF" stop-opacity="0.9"/>
+      <stop offset="70%" stop-color="#3A7BD5" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#1A4BA1" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="28" result="b"/>
+      <feColorMatrix in="b" type="matrix"
+        values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.45 0"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="500" fill="url(#bg)"/>
+  <ellipse cx="520" cy="200" rx="420" ry="280" fill="url(#glow)"/>
+  <path fill="url(#flow)" d="M0 380 Q400 280 800 320 T1600 300 V500 H0Z"/>
+  <!-- Soft abstract forms suggesting care and flow; non-representational -->
+  <g filter="url(#soft)">
+    <ellipse cx="1180" cy="180" rx="200" ry="120" fill="#1A4BA1" opacity="0.25"/>
+    <ellipse cx="920" cy="340" rx="280" ry="160" fill="#3A7BD5" opacity="0.2"/>
+  </g>
+  <path fill="none" stroke="#1A4BA1" stroke-width="2" stroke-opacity="0.2" stroke-linecap="round"
+    d="M200 300 C380 220 520 380 700 280 S980 200 1150 260 S1380 180 1480 240"/>
+  <path fill="none" stroke="#3A7BD5" stroke-width="1.5" stroke-opacity="0.35" stroke-linecap="round"
+    d="M240 320 C400 260 560 400 760 300 S1020 240 1220 280 S1420 220 1520 270"/>
+  <!-- Minimal cross motif: trust / clinical, very subtle -->
+  <g transform="translate(1280 120)" opacity="0.15">
+    <rect x="-2" y="-28" width="4" height="56" rx="2" fill="#0B1F4B"/>
+    <rect x="-28" y="-2" width="56" height="4" rx="2" fill="#0B1F4B"/>
+  </g>
+</svg>

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <title>Privacy Policy – SurgiMatch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #0B1F4B;
+      --royal:      #1A4BA1;
+      --sky:        #3A7BD5;
+      --ice:        #C8DEFF;
+      --white:      #FFFFFF;
+      --off-white:  #F4F7FF;
+      --slate:      #4B5870;
+      --text-muted: #5c6a82;
+      --border:     rgba(58,123,213,0.2);
+      --shadow:     0 8px 40px rgba(11,31,75,0.12);
+      --nav-bar-height: 176px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--nav-bar-height);
+    }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--off-white);
+      color: var(--navy);
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 40px;
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .logo-img {
+      height: 150px;
+      width: auto;
+      max-width: min(520px, 42vw);
+      display: block;
+      object-fit: contain;
+    }
+
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a {
+      text-decoration: none;
+      color: #3d4a60;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--navy); }
+
+    .nav-end {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .nav-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      border-radius: 10px;
+      color: var(--navy);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .nav-toggle:hover { background: rgba(58, 123, 213, 0.12); }
+    .nav-toggle:focus-visible {
+      outline: 2px solid var(--sky);
+      outline-offset: 2px;
+    }
+    .nav-toggle svg { display: block; overflow: visible; }
+    .nav-toggle-path {
+      transform-origin: 12px 8px;
+      transition: transform 0.25s ease, opacity 0.2s ease;
+    }
+    .nav-toggle-path--mid { transform-origin: center; }
+    .nav-toggle-path--bot { transform-origin: 12px 16px; }
+    nav.is-open .nav-toggle-path--top { transform: translateY(4px) rotate(45deg); }
+    nav.is-open .nav-toggle-path--mid { opacity: 0; }
+    nav.is-open .nav-toggle-path--bot { transform: translateY(-4px) rotate(-45deg); }
+
+    .btn-primary {
+      background: var(--royal);
+      color: white;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .btn-primary:hover { background: var(--navy); transform: translateY(-1px); }
+
+    /* Compact hero (matches homepage gradient & texture) */
+    .legal-hero {
+      position: relative;
+      padding: calc(var(--nav-bar-height) + 40px) 40px 72px;
+      background: linear-gradient(135deg, var(--navy) 0%, #0D2B6E 50%, #163580 100%);
+      overflow: hidden;
+    }
+    .legal-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(58,123,213,0.25) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 15% 85%, rgba(26,75,161,0.3) 0%, transparent 60%);
+    }
+    .legal-hero-grid {
+      position: absolute; inset: 0; opacity: 0.04;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .legal-hero-inner {
+      position: relative; z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .legal-hero .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--sky);
+      margin-bottom: 12px;
+    }
+    .legal-hero .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.85rem, 4vw, 2.6rem);
+      font-weight: 700;
+      color: white;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    .legal-hero .section-sub {
+      font-size: 1.05rem;
+      color: rgba(220, 232, 255, 0.9);
+      line-height: 1.75;
+      margin-top: 14px;
+      font-weight: 400;
+      max-width: 560px;
+    }
+
+    .legal-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 24px 100px;
+      position: relative; z-index: 3;
+    }
+
+    .legal-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 44px 48px 48px;
+      box-shadow: var(--shadow);
+    }
+
+    .legal-card > p:first-of-type {
+      font-size: 1rem;
+      color: var(--slate);
+      margin-bottom: 8px;
+    }
+
+    .legal-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin: 36px 0 12px;
+      padding-top: 8px;
+      border-top: 1px solid var(--border);
+    }
+    .legal-card h2:first-of-type {
+      margin-top: 28px;
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .legal-card p { margin-bottom: 14px; color: var(--navy); font-size: 0.98rem; line-height: 1.7; }
+    .legal-card ul { margin: 0 0 16px 1.25rem; color: var(--navy); font-size: 0.98rem; line-height: 1.65; }
+    .legal-card li { margin-bottom: 8px; }
+
+    .legal-card a { color: var(--royal); font-weight: 600; text-decoration: none; }
+    .legal-card a:hover { text-decoration: underline; }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 36px 0 24px;
+    }
+    .closing {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      margin-bottom: 0;
+      line-height: 1.7;
+    }
+
+    footer {
+      background: var(--navy);
+      color: rgba(210, 222, 255, 0.75);
+      padding: 40px;
+      text-align: center;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    footer a { color: rgba(220, 232, 255, 0.9); text-decoration: none; }
+    footer a:hover { color: white; }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 10px;
+    }
+    .footer-logo span { color: var(--ice); }
+
+    @media (max-width: 1200px) and (min-width: 901px) {
+      :root { --nav-bar-height: 120px; }
+      nav { padding: 10px 28px; }
+      .logo-img {
+        height: 96px;
+        max-width: min(380px, 44vw);
+      }
+    }
+
+    @media (max-width: 900px) {
+      :root { --nav-bar-height: 72px; }
+      body.nav-menu-open { overflow: hidden; }
+      nav { padding: 8px 24px; }
+      .logo-img {
+        height: 56px;
+        max-width: min(260px, 50vw);
+      }
+      .nav-toggle { display: inline-flex; }
+      .nav-links {
+        position: fixed;
+        top: var(--nav-bar-height);
+        left: 0;
+        right: 0;
+        z-index: 99;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 16px 40px rgba(11, 31, 75, 0.12);
+        pointer-events: none;
+      }
+      nav.is-open .nav-links {
+        max-height: min(75vh, 440px);
+        overflow-y: auto;
+        padding: 8px 0 20px;
+        pointer-events: auto;
+      }
+      .nav-links a {
+        padding: 14px 28px;
+        font-size: 1rem;
+        border-bottom: 1px solid rgba(58, 123, 213, 0.1);
+      }
+      .nav-links a:last-child { border-bottom: none; }
+      .legal-card { padding: 32px 24px 36px; }
+    }
+    @media (max-width: 560px) {
+      :root { --nav-bar-height: 56px; }
+      nav { padding: 6px 20px; }
+      .logo-img {
+        height: 44px;
+        max-width: min(220px, 58vw);
+      }
+      .legal-hero { padding: calc(var(--nav-bar-height) + 28px) 20px 56px; }
+      .legal-wrap { padding: 28px 16px 72px; }
+      .legal-card { padding: 28px 20px 32px; }
+      .legal-card h2 { font-size: 1.1rem; word-break: break-word; }
+      .nav-cta {
+        padding: 10px 12px;
+        font-size: 0.78rem;
+        gap: 4px;
+      }
+      .nav-cta svg { width: 12px; height: 12px; }
+      footer p { overflow-wrap: anywhere; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="site-nav" aria-label="Main">
+  <a class="logo" href="index.html">
+    <img class="logo-img" src="SurgiMatchLogo.png" alt="SurgiMatch" width="540" height="150" />
+  </a>
+  <div class="nav-links" id="nav-menu" role="navigation" aria-label="Primary">
+    <a href="index.html#how-it-works">How It Works</a>
+    <a href="index.html#specialties">Specialties</a>
+    <a href="about.html">About Us</a>
+    <a href="faq.html">FAQ</a>
+    <a href="index.html#match-form">Find a Surgeon</a>
+  </div>
+  <div class="nav-end">
+    <a href="index.html#match-form" class="btn-primary nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      Find a Surgeon
+    </a>
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path class="nav-toggle-path nav-toggle-path--top" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M5 8h14" />
+        <path class="nav-toggle-path nav-toggle-path--mid" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M5 12h14" />
+        <path class="nav-toggle-path nav-toggle-path--bot" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M5 16h14" />
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<section class="legal-hero" aria-label="Privacy Policy header">
+  <div class="legal-hero-grid" aria-hidden="true"></div>
+  <div class="legal-hero-inner">
+    <div class="section-label">Legal</div>
+    <h1 class="section-title">Privacy Policy</h1>
+    <p class="section-sub">How SurgiMatch collects, uses, and protects your personal information under the Privacy Act 1988 (Australia).</p>
+  </div>
+</section>
+
+<div class="legal-wrap">
+  <article class="legal-card">
+    <p>SurgiMatch (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) is committed to protecting your privacy and handling your personal information in accordance with the Privacy Act 1988 (Australia).</p>
+
+    <h2>1. What information we collect</h2>
+    <p>We may collect the following personal information:</p>
+    <ul>
+      <li>Full name</li>
+      <li>Phone number</li>
+      <li>Email address</li>
+      <li>Location</li>
+      <li>Procedure(s) of interest</li>
+      <li>Any additional information you voluntarily provide</li>
+    </ul>
+    <p>We do not require detailed medical history to use our service.</p>
+
+    <h2>2. How we collect your information</h2>
+    <p>We collect information when you:</p>
+    <ul>
+      <li>Submit an enquiry through our website</li>
+      <li>Contact us directly via social media, phone, or email</li>
+    </ul>
+
+    <h2>3. Why we collect your information</h2>
+    <p>We collect your information to:</p>
+    <ul>
+      <li>Match you with relevant surgical clinics</li>
+      <li>Facilitate consultations with providers</li>
+      <li>Improve our services</li>
+    </ul>
+
+    <h2>4. Sharing your information</h2>
+    <p>By using SurgiMatch, you agree that:</p>
+    <ul>
+      <li>Your information may be shared with relevant clinics or healthcare providers</li>
+      <li>These providers may contact you directly regarding your enquiry</li>
+    </ul>
+    <p>We only share your information with providers relevant to your request.</p>
+
+    <h2>5. Data storage and security</h2>
+    <p>We take reasonable steps to protect your personal information from misuse, loss, or unauthorised access.</p>
+
+    <h2>6. Access and correction</h2>
+    <p>You may request access to or correction of your personal information at any time by contacting us.</p>
+
+    <h2>7. Contact</h2>
+    <p>For any privacy-related enquiries, please contact:<br />
+    <a href="mailto:info@surgimatch.com.au">info@surgimatch.com.au</a></p>
+
+    <hr class="divider" />
+
+    <p class="closing">By using our services, you consent to this Privacy Policy.</p>
+  </article>
+</div>
+
+<footer>
+  <div class="footer-logo">Surgi<span>Match</span></div>
+  <p style="margin-bottom:10px;">Connecting patients with the right surgical expertise.</p>
+  <p>© 2026 SurgiMatch. All rights reserved. &nbsp;·&nbsp; <a href="about.html">About Us</a> &nbsp;·&nbsp; <a href="faq.html">FAQ</a> &nbsp;·&nbsp; <a href="privacy-policy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Terms of Service</a></p>
+</footer>
+
+<script>
+(function () {
+  var siteNav = document.getElementById("site-nav");
+  var navToggle = document.getElementById("nav-toggle");
+  var navMenu = document.getElementById("nav-menu");
+  function setNavOpen(open) {
+    if (!siteNav) return;
+    siteNav.classList.toggle("is-open", open);
+    document.body.classList.toggle("nav-menu-open", open);
+    if (navToggle) {
+      navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    }
+  }
+  if (navToggle && siteNav && navMenu) {
+    navToggle.addEventListener("click", function (e) {
+      e.stopPropagation();
+      setNavOpen(!siteNav.classList.contains("is-open"));
+    });
+    navMenu.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", function () { setNavOpen(false); });
+    });
+    var cta = siteNav.querySelector(".nav-cta");
+    if (cta) cta.addEventListener("click", function () { setNavOpen(false); });
+    document.addEventListener("click", function (e) {
+      if (!siteNav.classList.contains("is-open")) return;
+      if (siteNav.contains(e.target)) return;
+      setNavOpen(false);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") setNavOpen(false);
+    });
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 900) setNavOpen(false);
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

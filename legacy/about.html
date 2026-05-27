@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <title>About Us – SurgiMatch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0B1F4B;
+      --royal: #1A4BA1;
+      --sky: #3A7BD5;
+      --ice: #C8DEFF;
+      --white: #FFFFFF;
+      --off-white: #F4F7FF;
+      --slate: #4B5870;
+      --text-muted: #5c6a82;
+      --border: rgba(58,123,213,0.2);
+      --shadow: 0 8px 40px rgba(11,31,75,0.12);
+      --nav-bar-height: 176px;
+    }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--nav-bar-height);
+    }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--off-white);
+      color: var(--navy);
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 40px;
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .logo-img {
+      height: 150px;
+      width: auto;
+      max-width: min(520px, 42vw);
+      display: block;
+      object-fit: contain;
+    }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a {
+      text-decoration: none;
+      color: #3d4a60;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--navy); }
+    .nav-end {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .nav-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      border-radius: 10px;
+      color: var(--navy);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .nav-toggle:hover { background: rgba(58, 123, 213, 0.12); }
+    .nav-toggle:focus-visible {
+      outline: 2px solid var(--sky);
+      outline-offset: 2px;
+    }
+    .nav-toggle svg { display: block; overflow: visible; }
+    .nav-toggle-path {
+      transform-origin: 12px 8px;
+      transition: transform 0.25s ease, opacity 0.2s ease;
+    }
+    .nav-toggle-path--mid { transform-origin: center; }
+    .nav-toggle-path--bot { transform-origin: 12px 16px; }
+    nav.is-open .nav-toggle-path--top { transform: translateY(4px) rotate(45deg); }
+    nav.is-open .nav-toggle-path--mid { opacity: 0; }
+    nav.is-open .nav-toggle-path--bot { transform: translateY(-4px) rotate(-45deg); }
+    .btn-primary {
+      background: var(--royal);
+      color: white;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .btn-primary:hover { background: var(--navy); transform: translateY(-1px); }
+    .legal-hero {
+      position: relative;
+      padding: calc(var(--nav-bar-height) + 40px) 40px 72px;
+      background: linear-gradient(135deg, var(--navy) 0%, #0D2B6E 50%, #163580 100%);
+      overflow: hidden;
+    }
+    .legal-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(58,123,213,0.25) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 15% 85%, rgba(26,75,161,0.3) 0%, transparent 60%);
+    }
+    .legal-hero-grid {
+      position: absolute; inset: 0; opacity: 0.04;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .legal-hero-inner { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; }
+    .legal-hero .section-label {
+      font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--sky); margin-bottom: 12px;
+    }
+    .legal-hero .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.85rem, 4vw, 2.4rem);
+      font-weight: 700; color: white; line-height: 1.2; letter-spacing: -0.02em;
+    }
+    .legal-hero .section-sub {
+      font-size: 1.05rem; color: rgba(220, 232, 255, 0.9);
+      line-height: 1.75; margin-top: 14px; font-weight: 400; max-width: 520px;
+    }
+    .legal-wrap { max-width: 1000px; margin: 0 auto; padding: 40px 24px 100px; position: relative; z-index: 3; }
+    .about-content {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px 40px 48px;
+      box-shadow: var(--shadow);
+    }
+    .about-narrative {
+      margin-bottom: 40px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .about-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin: 0 0 14px 0;
+    }
+    .about-section + .about-section {
+      margin-top: 32px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+    .about-section p {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin: 0 0 14px;
+    }
+    .about-section p:last-child { margin-bottom: 0; }
+    .about-section ul {
+      margin: 0 0 16px 1.25rem;
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
+    .about-section li { margin-bottom: 8px; }
+    .about-section li:last-child { margin-bottom: 0; }
+    .about-after-profiles {
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+    .about-after-profiles .about-section + .about-section {
+      margin-top: 28px;
+      padding-top: 28px;
+    }
+    .about-bridge {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin: 0 0 28px;
+      max-width: 52ch;
+    }
+    .about-journey .about-journey-lines {
+      margin-top: 12px;
+      line-height: 1.8;
+    }
+    .about-profiles { display: flex; flex-direction: column; gap: 40px; }
+    .about-profile {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .about-profile + .about-profile {
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+    .about-avatar {
+      width: 180px; height: 200px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: linear-gradient(160deg, #0D2B6E 0%, var(--royal) 45%, #5a8fd9 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 3.25rem; font-weight: 700; color: rgba(255,255,255,0.95);
+      letter-spacing: 0.02em;
+      box-shadow: 0 6px 24px rgba(11,31,75,0.12);
+    }
+    .about-avatar--g {
+      background: linear-gradient(160deg, #163580 0%, var(--sky) 50%, #8eb8ea 100%);
+    }
+    .about-profile-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem; font-weight: 700; color: var(--navy);
+      margin: 0 0 4px 0;
+    }
+    .about-role {
+      font-size: 0.9rem; font-weight: 600; color: var(--royal);
+      margin: 0 0 16px 0; letter-spacing: 0.02em;
+    }
+    .about-profile-text p {
+      font-size: 0.98rem; color: var(--text-muted);
+      line-height: 1.75; margin: 0; font-weight: 400;
+    }
+    .about-cta {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 36px 24px;
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+    .about-cta .about-cta-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; font-weight: 700; color: var(--navy);
+      margin: 0 0 10px 0;
+    }
+    .about-cta p { font-size: 0.98rem; color: var(--text-muted); line-height: 1.7; max-width: 420px; margin: 0 0 20px; }
+    .about-cta .btn-primary { margin: 0 auto; }
+    footer {
+      background: var(--navy);
+      color: rgba(210, 222, 255, 0.75);
+      padding: 40px; text-align: center; font-size: 0.9rem; line-height: 1.6;
+    }
+    footer a { color: rgba(220, 232, 255, 0.9); text-decoration: none; }
+    footer a:hover { color: white; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: white; margin-bottom: 10px; }
+    .footer-logo span { color: var(--ice); }
+
+    @media (max-width: 1200px) and (min-width: 901px) {
+      :root { --nav-bar-height: 120px; }
+      nav { padding: 10px 28px; }
+      .logo-img {
+        height: 96px;
+        max-width: min(380px, 44vw);
+      }
+    }
+
+    @media (max-width: 900px) {
+      :root { --nav-bar-height: 72px; }
+      body.nav-menu-open { overflow: hidden; }
+      nav { padding: 8px 24px; }
+      .logo-img {
+        height: 56px;
+        max-width: min(260px, 50vw);
+      }
+      .nav-toggle { display: inline-flex; }
+      .nav-links {
+        position: fixed;
+        top: var(--nav-bar-height);
+        left: 0;
+        right: 0;
+        z-index: 99;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 16px 40px rgba(11, 31, 75, 0.12);
+        pointer-events: none;
+      }
+      nav.is-open .nav-links {
+        max-height: min(75vh, 440px);
+        overflow-y: auto;
+        padding: 8px 0 20px;
+        pointer-events: auto;
+      }
+      .nav-links a {
+        padding: 14px 28px;
+        font-size: 1rem;
+        border-bottom: 1px solid rgba(58, 123, 213, 0.1);
+      }
+      .nav-links a:last-child { border-bottom: none; }
+    }
+    @media (max-width: 640px) {
+      .about-profile { grid-template-columns: 1fr; }
+      .about-avatar { justify-self: center; }
+    }
+    @media (max-width: 560px) {
+      :root { --nav-bar-height: 56px; }
+      nav { padding: 6px 20px; }
+      .logo-img {
+        height: 44px;
+        max-width: min(220px, 58vw);
+      }
+      .legal-hero { padding: calc(var(--nav-bar-height) + 28px) 20px 56px; }
+      .legal-wrap { padding: 28px 16px 72px; }
+      .about-content { padding: 28px 20px 32px; }
+      .nav-cta {
+        padding: 10px 12px;
+        font-size: 0.78rem;
+        gap: 4px;
+      }
+      .nav-cta svg { width: 12px; height: 12px; }
+      footer p { overflow-wrap: anywhere; }
+    }
+  </style>
+</head>
+<body>
+<nav id="site-nav" aria-label="Main">
+  <a class="logo" href="index.html">
+    <img class="logo-img" src="SurgiMatchLogo.png" alt="SurgiMatch" width="540" height="150" />
+  </a>
+  <div class="nav-links" id="nav-menu" role="navigation" aria-label="Primary">
+    <a href="index.html#how-it-works">How It Works</a>
+    <a href="index.html#specialties">Specialties</a>
+    <a href="about.html" aria-current="page">About Us</a>
+    <a href="faq.html">FAQ</a>
+    <a href="index.html#match-form">Find a Surgeon</a>
+  </div>
+  <div class="nav-end">
+    <a href="index.html#match-form" class="btn-primary nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      Find a Surgeon
+    </a>
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path class="nav-toggle-path nav-toggle-path--top" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M5 8h14" />
+        <path class="nav-toggle-path nav-toggle-path--mid" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M5 12h14" />
+        <path class="nav-toggle-path nav-toggle-path--bot" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M5 16h14" />
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<section class="legal-hero" aria-labelledby="about-hero-title">
+  <div class="legal-hero-grid" aria-hidden="true"></div>
+  <div class="legal-hero-inner">
+    <div class="section-label">About</div>
+    <h1 class="section-title" id="about-hero-title">The people behind SurgiMatch</h1>
+    <p class="section-sub">Clinical experience and a patient-first approach guide everything we do.</p>
+  </div>
+</section>
+
+<div class="legal-wrap">
+  <div class="about-content">
+    <div class="about-narrative">
+      <section class="about-section" aria-labelledby="about-surgimatch-heading">
+        <h2 id="about-surgimatch-heading">About SurgiMatch</h2>
+        <p>Choosing the right surgeon or clinic shouldn’t feel overwhelming, confusing, or risky. At SurgiMatch, we simplify that process—connecting patients with the right medical professionals based on their needs, goals, and circumstances.</p>
+        <p>We are not just a directory. We are a guided matching service built to help patients make confident, informed decisions.</p>
+      </section>
+      <section class="about-section" aria-labelledby="why-exists-heading">
+        <h2 id="why-exists-heading">Why SurgiMatch Exists</h2>
+        <p>SurgiMatch was created after years of working inside the healthcare system and seeing the same problem again and again:</p>
+        <p>Patients are often left to navigate complex medical decisions on their own—without clear guidance, trusted recommendations, or a proper understanding of their options.</p>
+        <p><strong>This leads to:</strong></p>
+        <ul>
+          <li>Uncertainty</li>
+          <li>Mismatched expectations</li>
+          <li>Delayed or poor decisions</li>
+        </ul>
+        <p>We built SurgiMatch to change that.</p>
+        <p><strong>Our goal is simple:</strong> to make the journey from enquiry to treatment safer, clearer, and more personalised.</p>
+      </section>
+      <section class="about-section" aria-labelledby="differently-heading">
+        <h2 id="differently-heading">What We Do Differently</h2>
+        <p>Unlike online directories or referral platforms, SurgiMatch takes a patient-first, tailored approach.</p>
+        <p><strong>We:</strong></p>
+        <ul>
+          <li>Take the time to understand each patient’s needs</li>
+          <li>Match them with suitable clinics and surgeons</li>
+          <li>Help streamline the process from enquiry to consultation</li>
+        </ul>
+        <p>Every match is made with intention—not just availability.</p>
+      </section>
+      <section class="about-section" aria-labelledby="clinical-exp-heading">
+        <h2 id="clinical-exp-heading">Built by Clinical Experience</h2>
+        <p>SurgiMatch is founded by professionals with deep, real-world experience in surgical care.</p>
+      </section>
+    </div>
+    <div class="about-profiles">
+      <article class="about-profile" id="yasser">
+        <div class="about-avatar" role="img" aria-label="Photo placeholder, Yasser — image coming soon">Y</div>
+        <div class="about-profile-text">
+          <h2>Yasser</h2>
+          <p class="about-role">Founder</p>
+          <p>Yasser, the founder of SurgiMatch, brings over 21 years of nursing experience to the business. For 18 of those years, he worked as a highly skilled scrub scout nurse, beginning his career in the Philippines before continuing his professional journey in the United Kingdom and now Australia. Throughout his career, Yasser has built strong, trusted relationships with surgeons and medical professionals, while developing deep expertise in the surgical field. His extensive hands-on experience and industry insight are the foundation of SurgiMatch’s commitment to connecting patients with the right specialists.</p>
+        </div>
+      </article>
+      <article class="about-profile" id="genevieve">
+        <div class="about-avatar about-avatar--g" role="img" aria-label="Photo placeholder, Genevieve — image coming soon">G</div>
+        <div class="about-profile-text">
+          <h2>Genevieve</h2>
+          <p class="about-role">CEO</p>
+          <p>Genevieve, CEO of SurgiMatch, brings valuable clinical experience and a patient-focused approach to the business. With a background in nursing across the perioperative setting, endoscopy theatres, and pain management procedures, she has developed a well-rounded understanding of surgical care from preparation through recovery. Her hands-on experience allows her to understand patient needs, concerns, and expectations on a deeper level. This insight plays a key role in helping patients find the right specialist, ensuring they feel informed, supported, and confident throughout their surgical journey.</p>
+        </div>
+      </article>
+    </div>
+    <div class="about-after-profiles">
+      <p class="about-bridge">Together, they combine clinical insight with patient advocacy—bridging the gap between patients and providers.</p>
+      <section class="about-section" aria-labelledby="commitment-heading">
+        <h2 id="commitment-heading">Our Commitment</h2>
+        <p><strong>We are committed to:</strong></p>
+        <ul>
+          <li>Patient-first recommendations</li>
+          <li>Confidential and respectful handling of information</li>
+          <li>Clear, honest communication</li>
+        </ul>
+        <p>Your trust is the foundation of everything we do.</p>
+      </section>
+      <section class="about-section about-journey" aria-labelledby="journey-heading">
+        <h2 id="journey-heading">Your Journey, Matched Right</h2>
+        <p>At SurgiMatch, we believe the right match makes all the difference.</p>
+        <p class="about-journey-lines">Because when patients are guided properly,<br />they don’t just make decisions faster—<br />they make better ones.</p>
+      </section>
+    </div>
+    <div class="about-cta">
+      <p class="about-cta-title">Ready to get matched?</p>
+      <p>Tell us what you need and we’ll help you find the right specialist.</p>
+      <a href="index.html#match-form" class="btn-primary">Find a Surgeon</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">Surgi<span>Match</span></div>
+  <p style="margin-bottom:10px;">Connecting patients with the right surgical expertise.</p>
+  <p>© 2026 SurgiMatch. All rights reserved. &nbsp;·&nbsp; <a href="about.html">About Us</a> &nbsp;·&nbsp; <a href="faq.html">FAQ</a> &nbsp;·&nbsp; <a href="privacy-policy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Terms of Service</a></p>
+</footer>
+<script>
+(function () {
+  var siteNav = document.getElementById("site-nav");
+  var navToggle = document.getElementById("nav-toggle");
+  var navMenu = document.getElementById("nav-menu");
+  function setNavOpen(open) {
+    if (!siteNav) return;
+    siteNav.classList.toggle("is-open", open);
+    document.body.classList.toggle("nav-menu-open", open);
+    if (navToggle) {
+      navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    }
+  }
+  if (navToggle && siteNav && navMenu) {
+    navToggle.addEventListener("click", function (e) {
+      e.stopPropagation();
+      setNavOpen(!siteNav.classList.contains("is-open"));
+    });
+    navMenu.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", function () { setNavOpen(false); });
+    });
+    var cta = siteNav.querySelector(".nav-cta");
+    if (cta) cta.addEventListener("click", function () { setNavOpen(false); });
+    document.addEventListener("click", function (e) {
+      if (!siteNav.classList.contains("is-open")) return;
+      if (siteNav.contains(e.target)) return;
+      setNavOpen(false);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") setNavOpen(false);
+    });
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 900) setNavOpen(false);
+    });
+  }
+})();
+</script>
+</body>
+</html>
